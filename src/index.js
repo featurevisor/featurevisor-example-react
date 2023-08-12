@@ -1,13 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createInstance } from "@featurevisor/sdk";
+import { FeaturevisorProvider } from "@featurevisor/react";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+
+const DATAFILE_URL =
+  "https://featurevisor-example-cloudflare.pages.dev/production/datafile-tag-all.json";
+
+const f = createInstance({
+  datafileUrl: DATAFILE_URL,
+  onReady: () => console.log("Featurevisor SDK is ready"),
+});
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <FeaturevisorProvider sdk={f}>
+      <App />
+    </FeaturevisorProvider>
   </React.StrictMode>
 );
 
