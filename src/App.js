@@ -1,4 +1,4 @@
-import { useStatus, useFlag } from "@featurevisor/react";
+import { useFlag, useStatus } from "@featurevisor/react";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -7,8 +7,7 @@ function App() {
   const { isReady } = useStatus();
 
   const context = { userId: "123" };
-  const isEnabled = false;
-  // const isEnabled = useFlag("baz", context);
+  const isEnabled = useFlag("baz", context);
 
   return (
     <div className="App">
@@ -19,11 +18,11 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://featurevisor.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn Featurevisor
         </a>
 
         <hr />

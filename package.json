@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@featurevisor/react": "^0.44.0",
+    "@featurevisor/react": "^0.44.2",
     "@featurevisor/sdk": "^0.44.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
