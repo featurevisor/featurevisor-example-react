@@ -18,7 +18,7 @@ const f = createInstance({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <FeaturevisorProvider sdk={f}>
+    <FeaturevisorProvider instance={f}>
       <App />
     </FeaturevisorProvider>
   </React.StrictMode>
