@@ -1,13 +1,10 @@
-import { useFlag, useStatus } from "@featurevisor/react";
+import { useFlag } from "@featurevisor/react";
 
 import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  const { isReady } = useStatus();
-
-  const context = { userId: "123" };
-  const isEnabled = useFlag("baz", context);
+  const isEnabled = useFlag("baz");
 
   return (
     <div className="App">
@@ -27,14 +24,10 @@ function App() {
 
         <hr />
 
-        {isReady ? (
-          <p>
-            Featurevisor SDK evaluated <code>baz</code> feature flag as{" "}
-            <code>{isEnabled.toString()}</code>
-          </p>
-        ) : (
-          <p>Featurevisor SDK is getting ready...</p>
-        )}
+        <p>
+          Featurevisor SDK evaluated <code>baz</code> feature flag as{" "}
+          <code>{isEnabled.toString()}</code>
+        </p>
       </header>
     </div>
   );
