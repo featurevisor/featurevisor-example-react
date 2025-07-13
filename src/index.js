@@ -8,11 +8,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const DATAFILE_URL =
-  "https://featurevisor-example-cloudflare.pages.dev/production/datafile-tag-all.json";
+  "https://featurevisor-example-cloudflare.pages.dev/production/featurevisor-tag-all.json";
+
+const datafileContent = await fetch(DATAFILE_URL).then((response) =>
+  response.json()
+);
 
 const f = createInstance({
-  datafileUrl: DATAFILE_URL,
-  onReady: () => console.log("Featurevisor SDK is ready"),
+  datafile: datafileContent,
+  context: { userId: "123" },
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
