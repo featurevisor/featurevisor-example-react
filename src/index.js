@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createInstance } from "@featurevisor/sdk";
+import { createFeaturevisor } from "@featurevisor/sdk";
 import { FeaturevisorProvider } from "@featurevisor/react";
 
 import "./index.css";
@@ -14,7 +14,7 @@ const datafileContent = await fetch(DATAFILE_URL).then((response) =>
   response.json()
 );
 
-const f = createInstance({
+const f = createFeaturevisor({
   datafile: datafileContent,
   context: { userId: "123" },
 });
