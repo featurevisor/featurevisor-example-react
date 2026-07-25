@@ -27,7 +27,6 @@ test("evaluates a feature with the provided Featurevisor instance", () => {
       segments: {},
     },
     context: { userId: "123" },
-    logLevel: "fatal",
   });
 
   const { unmount } = render(
