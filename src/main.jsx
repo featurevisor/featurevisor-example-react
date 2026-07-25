@@ -5,7 +5,6 @@ import { FeaturevisorProvider } from "@featurevisor/react";
 
 import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 
 const DATAFILE_URL =
   "https://featurevisor-example-cloudflare.pages.dev/production/featurevisor-tag-all.json";
@@ -19,7 +18,13 @@ const f = createFeaturevisor({
   context: { userId: "123" },
 });
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const rootElement = document.getElementById("root");
+
+if (!rootElement) {
+  throw new Error("Root element not found");
+}
+
+const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
     <FeaturevisorProvider instance={f}>
@@ -27,8 +32,3 @@ root.render(
     </FeaturevisorProvider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

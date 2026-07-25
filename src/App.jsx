@@ -3,7 +3,7 @@ import { useFlag } from "@featurevisor/react";
 import logo from "./logo.svg";
 import "./App.css";
 
-function App() {
+export default function App() {
   const isEnabled = useFlag("baz");
 
   return (
@@ -32,5 +32,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
