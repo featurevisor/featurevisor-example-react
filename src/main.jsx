@@ -9,9 +9,13 @@ import App from "./App";
 const DATAFILE_URL =
   "https://featurevisor-example-cloudflare.pages.dev/production/featurevisor-tag-all.json";
 
-const datafileContent = await fetch(DATAFILE_URL).then((response) =>
-  response.json()
-);
+const response = await fetch(DATAFILE_URL);
+
+if (!response.ok) {
+  throw new Error(`Failed to fetch datafile: HTTP ${response.status}`);
+}
+
+const datafileContent = await response.json();
 
 const f = createFeaturevisor({
   datafile: datafileContent,
