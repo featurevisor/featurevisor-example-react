@@ -7,18 +7,16 @@ import App from "./App";
 test("evaluates a feature with the provided Featurevisor instance", () => {
   const f = createFeaturevisor({
     datafile: {
-      schemaVersion: "2",
+      schemaVersion: "4",
       revision: "1",
       features: {
         baz: {
-          key: "baz",
           bucketBy: "userId",
           traffic: [
             {
               key: "1",
-              segments: "*",
+              conditions: "*",
               percentage: 100000,
-              allocation: [],
             },
           ],
           hash: "baz",
